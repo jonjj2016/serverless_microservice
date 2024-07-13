@@ -1,0 +1,65 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: jonjj1988
+# "service" is the name of this project. This will also be added to your AWS resource names.
+service: user
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+functions:
+  signup:
+    handler: app/handler.signup
+    events:
+      - httpApi:
+          path: /signup
+          method: post
+  signin:
+    handler: app/handler.signin
+    events:
+      - httpApi:
+          path: /signin
+          method: post
+  verify:
+    handler: app/handler.verify
+    events:
+      - httpApi:
+          path: /verify
+          method: post
+  profile:
+    handler: app/handler.profile
+    events:
+      - httpApi:
+          path: /user
+          method: post
+      - httpApi:
+          path: /user
+          method: get
+      - httpApi:
+          path: /user
+          method: put
+  cart:
+    handler: app/handler.cart
+    events:
+      - httpApi:
+          path: /cart
+          method: post
+      - httpApi:
+          path: /cart
+          method: get
+      - httpApi:
+          path: /cart
+          method: put
+  payment:
+    handler: app/handler.payment
+    events:
+      - httpApi:
+          path: /payment
+          method: post
+      - httpApi:
+          path: /payment
+          method: put
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+# sls plugin install --name
