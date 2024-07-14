@@ -13,6 +13,12 @@ exports.payment = exports.cart = exports.profile = exports.verify = exports.sign
 const userService_1 = require("../service/userService");
 const utility_1 = require("../utility");
 const service = new userService_1.UserService();
+var HttpMethod;
+(function (HttpMethod) {
+    HttpMethod["GET"] = "GET";
+    HttpMethod["POST"] = "POST";
+    HttpMethod["PUT"] = "PUT";
+})(HttpMethod || (HttpMethod = {}));
 const signup = (event) => __awaiter(void 0, void 0, void 0, function* () {
     return yield service.Signup(event);
 });
@@ -42,11 +48,33 @@ const profile = (event) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.profile = profile;
 const cart = (event) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield service.CreateCart(event);
+    var _a, _b;
+    const httpMethod = (_b = (_a = event.requestContext) === null || _a === void 0 ? void 0 : _a.http) === null || _b === void 0 ? void 0 : _b.method;
+    switch (httpMethod) {
+        case 'GET':
+            return yield service.GetCart(event);
+        case 'PUT':
+            return yield service.UpdateCart(event);
+        case 'POST':
+            return yield service.CreateCart(event);
+        default:
+            return (0, utility_1.ErrorResponse)(404, 'Invalid Method!!!');
+    }
 });
 exports.cart = cart;
 const payment = (event) => __awaiter(void 0, void 0, void 0, function* () {
-    return yield service.CreatePayment(event);
+    var _a, _b;
+    const httpMethod = (_b = (_a = event.requestContext) === null || _a === void 0 ? void 0 : _a.http) === null || _b === void 0 ? void 0 : _b.method;
+    switch (httpMethod) {
+        case 'GET':
+            return yield service.GetPayment(event);
+        case 'PUT':
+            return yield service.UpdatePayment(event);
+        case 'POST':
+            return yield service.CreatePayment(event);
+        default:
+            return (0, utility_1.ErrorResponse)(404, 'Invalid Method!!!');
+    }
 });
 exports.payment = payment;
 //# sourceMappingURL=user.handler.js.map

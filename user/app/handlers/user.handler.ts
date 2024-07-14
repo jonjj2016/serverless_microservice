@@ -4,6 +4,12 @@ import { ErrorResponse } from '../utility'
 
 const service = new UserService()
 
+enum HttpMethod {
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+}
+
 export const signup = async (event: APIGatewayProxyEventV2) => {
   return await service.Signup(event)
 }
@@ -31,9 +37,29 @@ export const profile = async (event: APIGatewayProxyEventV2) => {
 }
 
 export const cart = async (event: APIGatewayProxyEventV2) => {
-  return await service.CreateCart(event)
+  const httpMethod = event.requestContext?.http?.method as HttpMethod
+  switch (httpMethod) {
+    case 'GET':
+      return await service.GetCart(event)
+    case 'PUT':
+      return await service.UpdateCart(event)
+    case 'POST':
+      return await service.CreateCart(event)
+    default:
+      return ErrorResponse(404, 'Invalid Method!!!')
+  }
 }
 
 export const payment = async (event: APIGatewayProxyEventV2) => {
-  return await service.CreatePayment(event)
+  const httpMethod = event.requestContext?.http?.method as HttpMethod
+  switch (httpMethod) {
+    case 'GET':
+      return await service.GetPayment(event)
+    case 'PUT':
+      return await service.UpdatePayment(event)
+    case 'POST':
+      return await service.CreatePayment(event)
+    default:
+      return ErrorResponse(404, 'Invalid Method!!!')
+  }
 }
