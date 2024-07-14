@@ -22,7 +22,9 @@ const formatResponse = (statusCode, message, data) => {
         };
     }
 };
-const SuccessResponse = (data) => formatResponse(200, 'Success', data);
+const SuccessResponse = ({ data, message = 'success', }) => {
+    return formatResponse(200, message, data);
+};
 exports.SuccessResponse = SuccessResponse;
 const ErrorResponse = (code = 1000, error) => {
     if (Array.isArray(error)) {

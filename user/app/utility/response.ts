@@ -19,8 +19,15 @@ const formatResponse = (statusCode: number, message: string, data: unknown) => {
   }
 }
 
-export const SuccessResponse = (data: unknown) =>
-  formatResponse(200, 'Success', data)
+export const SuccessResponse = ({
+  data,
+  message = 'success',
+}: {
+  data: unknown
+  message?: string
+}) => {
+  return formatResponse(200, message, data)
+}
 export const ErrorResponse = (code = 1000, error: unknown) => {
   if (Array.isArray(error)) {
     const errorObject = error[0].constraints
