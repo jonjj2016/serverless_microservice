@@ -16,7 +16,11 @@ class UserService {
     Signup(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ message: 'user created', data: {} });
+                const body = event.body;
+                console.log('====================================');
+                console.log(body);
+                console.log('====================================');
+                return (0, utility_1.SuccessResponse)({ data: body });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -26,7 +30,7 @@ class UserService {
     Signin(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user signed in' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user signed in' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -36,7 +40,7 @@ class UserService {
     Verify(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user verified' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user verified' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -47,7 +51,7 @@ class UserService {
     GetProfile(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user profile get' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user profile get' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -57,7 +61,7 @@ class UserService {
     UpdateProfile(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user profile Patched' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user profile Patched' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -67,7 +71,7 @@ class UserService {
     CreateProfile(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user profile created' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user profile created' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -78,7 +82,7 @@ class UserService {
     CreateCart(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user cart Create' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user cart Create' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -88,7 +92,7 @@ class UserService {
     GetCart(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user cart Get' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user cart Get' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -98,7 +102,7 @@ class UserService {
     UpdateCart(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user cart Update' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user cart Update' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -109,7 +113,7 @@ class UserService {
     CreatePayment(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user payment Create' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user payment Create' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -119,7 +123,7 @@ class UserService {
     UpdatePayment(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user payment Update' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user payment Update' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);
@@ -129,7 +133,7 @@ class UserService {
     GetPayment(event) {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                return (0, utility_1.SuccessResponse)({ data: {}, message: 'user payment Get' });
+                return (0, utility_1.SuccessResponse)({ data: { message: 'user payment Get' } });
             }
             catch (error) {
                 return (0, utility_1.ErrorResponse)(500, error);

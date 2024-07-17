@@ -5,7 +5,11 @@ export class UserService {
   constructor() {}
   async Signup(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ message: 'user created', data: {} })
+      const body = event.body
+      console.log('====================================')
+      console.log(body)
+      console.log('====================================')
+      return SuccessResponse({ data: body })
     } catch (error) {
       return ErrorResponse(500, error)
     }
@@ -13,7 +17,7 @@ export class UserService {
 
   async Signin(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user signed in' })
+      return SuccessResponse({ data: { message: 'user signed in' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
@@ -21,7 +25,7 @@ export class UserService {
 
   async Verify(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user verified' })
+      return SuccessResponse({ data: { message: 'user verified' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
@@ -29,7 +33,7 @@ export class UserService {
   // User Profile Methods
   async GetProfile(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user profile get' })
+      return SuccessResponse({ data: { message: 'user profile get' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
@@ -37,14 +41,14 @@ export class UserService {
 
   async UpdateProfile(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user profile Patched' })
+      return SuccessResponse({ data: { message: 'user profile Patched' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
   }
   async CreateProfile(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user profile created' })
+      return SuccessResponse({ data: { message: 'user profile created' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
@@ -52,21 +56,21 @@ export class UserService {
   // Cart Crud Operation Methods
   async CreateCart(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user cart Create' })
+      return SuccessResponse({ data: { message: 'user cart Create' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
   }
   async GetCart(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user cart Get' })
+      return SuccessResponse({ data: { message: 'user cart Get' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
   }
   async UpdateCart(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user cart Update' })
+      return SuccessResponse({ data: { message: 'user cart Update' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
@@ -74,21 +78,21 @@ export class UserService {
   // Payment Crud Operation Methods
   async CreatePayment(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user payment Create' })
+      return SuccessResponse({ data: { message: 'user payment Create' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
   }
   async UpdatePayment(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user payment Update' })
+      return SuccessResponse({ data: { message: 'user payment Update' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
   }
   async GetPayment(event: APIGatewayProxyEventV2) {
     try {
-      return SuccessResponse({ data: {}, message: 'user payment Get' })
+      return SuccessResponse({ data: { message: 'user payment Get' } })
     } catch (error) {
       return ErrorResponse(500, error)
     }
